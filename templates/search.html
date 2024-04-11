@@ -1,0 +1,13 @@
+<br>
+<div style="text-align:center;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <ul id="ul"></ul>
+      <script>
+        let input = document.querySelector('input');
+        input.addEventListener('input', async function(){
+          let response = await fetch('/search-resolve?q='+input.value);
+          let names = await response.text();
+          document.getElementById('ul').innerHTML = names;
+        });
+      </script>
+</div>
